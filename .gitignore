@@ -1,3 +1,20 @@
+.DS_store
+*.emSession
+*.jlink
+Output
+pool_temps.out.poolB.txt
+pool_temps.pool.txt
+readings.txt
+readingsB.txt
+bins/
+gj/
+dev/
+src/
+
+debug.cfg
+debug_custom.json
+esp32.svd
+
 # Prerequisites
 *.d
 
