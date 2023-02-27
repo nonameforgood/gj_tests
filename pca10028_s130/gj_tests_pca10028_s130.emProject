@@ -40,11 +40,11 @@
       linker_section_placement_file="flash_placement.xml"
       linker_section_placement_macros="FLASH_PH_START=0x0;FLASH_PH_SIZE=0x40000;RAM_PH_START=0x20000000;RAM_PH_SIZE=0x8000;FLASH_START=0x1b000;FLASH_SIZE=0x10000;RAM_START=0x20002000;RAM_SIZE=0x6000"
       linker_section_placements_segments="FLASH RX 0x0 0x40000;RAM RWX 0x20000000 0x4000"
-      macros="CMSIS_CONFIG_TOOL=$(NRF_SDK12_PATH)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar;GJ_PATH=../gj/src/"
+      macros="CMSIS_CONFIG_TOOL=$(NRF_SDK12_PATH)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar;GJ_PATH=../src/gj/src/"
       project_directory=""
       project_type="Executable" />
     <folder Name="GJ Startup Files">
-      <file file_name="../thumb_crt0.s" />
+      <file file_name="$(StudioDir)/source/thumb_crt0.s" />
     </folder>
     <folder Name="nRF_Log">
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/log/src/nrf_log_backend_serial.c" />
