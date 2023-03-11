@@ -167,12 +167,15 @@
       <file file_name="$(GJ_PATH)/gj/nrf51utils.cpp" />
       <file file_name="$(GJ_PATH)/gj/platform.cpp" />
       <file file_name="$(GJ_PATH)/gj/sensor.cpp" />
+      <file file_name="$(GJ_PATH)/gj/sensorcb.cpp" />
       <file file_name="$(GJ_PATH)/gj/nrf/nrfadc.cpp" />
       <file file_name="$(GJ_PATH)/gj/printmem.cpp" />
       <file file_name="$(GJ_PATH)/gj/utils.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/tests.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_pins.cpp" />
+      <file file_name="$(GJ_PATH)/gj/tests/test_pincommands.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_commands.cpp" />
+      <file file_name="$(GJ_PATH)/gj/tests/test_eventmanager.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_config.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_appendonlyfile.cpp" />
     </folder>

@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "src/gj/src/gj"
+		},
+		{
+			"path": "../../nRF5_SDK_12.3.0_d7731ad/components"
 		}
 	],
 	"settings": {
