@@ -12,5 +12,11 @@ nrf51822 and nrf52832
 
 esp32
 
+-Arduino 1.8.12
+
+-esp32 by espressif system version 2.0.6
+
+-ulptool v2.4.2
+
 -clone depot gj into src/
 
