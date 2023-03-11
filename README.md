@@ -2,7 +2,7 @@
 
 nrf51822 and nrf52832
 
--compile with Nordic SDK 13
+-compile with Nordic SDK 12
 
 -Use Segger Studio 5.68a
 
