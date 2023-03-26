@@ -15,14 +15,6 @@
 #include "src/gj/src/gj/gjbleserver.h"
 
 #include "src/gj/src/gj/tests/tests.h"
-#include "softdevice_handler.h"
-
-static void power_manage(void)
-{
-  uint32_t err_code = sd_app_evt_wait();
-  APP_ERROR_CHECK(err_code);
-}
-
 
 void RunTests()
 {
@@ -45,10 +37,16 @@ void RunTests()
 
 #if defined(NRF)
 #include "src/gj/src/gj/nrf51utils.h"
+#include "softdevice_handler.h"
+
+static void power_manage(void)
+{
+  uint32_t err_code = sd_app_evt_wait();
+  APP_ERROR_CHECK(err_code);
+}
 
 DEFINE_FILE_SECTORS(config, "/config", 0x2fc00, 1);
 DEFINE_FILE_SECTORS(testfile, "/test", 0x30000, 1);
-
 
 #if defined(NRF51)
   BEGIN_BOOT_PARTITIONS()
