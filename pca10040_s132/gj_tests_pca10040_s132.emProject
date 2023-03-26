@@ -71,6 +71,7 @@
       <file file_name="$(GJ_PATH)/gj/tests/test_config.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_eventmanager.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_appendonlyfile.cpp" />
+      <file file_name="$(GJ_PATH)/gj/tests/test_datetime.cpp" />
     </folder>
     <folder Name="nRF_Log">
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/log/src/nrf_log_backend_serial.c" />
@@ -157,12 +158,15 @@
     <configuration
       Name="Release"
       STLport="No"
+      debug_restrict_memory_access="No"
       external_debug_symbols_file_name="/Users/rsmRSM/Documents/nordic/projects/gjboot/pca10040/Output/Release/Exe/gjboot_pca10040_s132.elf"
       external_debug_symbols_load_address="0x0"
-      linker_output_format="bin" />
+      linker_output_format="bin"
+      target_loader_erase_all="Yes" />
     <configuration
       Name="Debug"
       c_preprocessor_definitions="DEBUG;NRF;NRF_SDK12;BLE_STACK_SUPPORT_REQD;BOARD_PCA10040;CONFIG_GPIO_AS_PINRESET;FLOAT_ABI_HARD;INITIALIZE_USER_SECTIONS;NO_VTOR_CONFIG;NRF52;NRF52832;NRF52832_XXAA;NRF52_PAN_74;NRF_SD_BLE_API_VERSION=3;S132;SOFTDEVICE_PRESENT"
+      debug_restrict_memory_access="No"
       debug_type_file="$(StudioDir)/bin/libc++.xml"
       libcxx="Yes (No Exceptions)" />
   </project>
