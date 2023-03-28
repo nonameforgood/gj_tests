@@ -12,6 +12,7 @@
 #include "src/gj/src/gj/config.h"
 #include "src/gj/src/gj/test.h"
 #include "src/gj/src/gj/eventmanager.h"
+#include "src/gj/src/gj/gjbleserver.h"
 
 #include "src/gj/src/gj/tests/tests.h"
 
@@ -30,23 +31,62 @@ void RunTests()
   GJEventManager = new EventManager(maxEvents);
 
   TestGJ();
+
+  SER("\n\r");
 }
 
 #if defined(NRF)
 #include "src/gj/src/gj/nrf51utils.h"
+#include "softdevice_handler.h"
+
+static void power_manage(void)
+{
+  uint32_t err_code = sd_app_evt_wait();
+  APP_ERROR_CHECK(err_code);
+}
 
 DEFINE_FILE_SECTORS(config, "/config", 0x2fc00, 1);
 DEFINE_FILE_SECTORS(testfile, "/test", 0x30000, 1);
+
+#if defined(NRF51)
+  BEGIN_BOOT_PARTITIONS()
+  DEFINE_BOOT_PARTITION(0, 0x1c000, 0x10000)
+  DEFINE_BOOT_PARTITION(1, 0x2d000, 0x10000)
+  END_BOOT_PARTITIONS()
+#elif defined(NRF52)
+  BEGIN_BOOT_PARTITIONS()
+  DEFINE_BOOT_PARTITION(0, 0x20000, 0x20000)
+  DEFINE_BOOT_PARTITION(1, 0x40000, 0x20000)
+  END_BOOT_PARTITIONS()
+#endif
+
+GJBLEServer bleServer;
 
 int main()
 {
   RunTests();
 
+  InitFStorage();
+
+  uint32_t centralLinks = 0;
+  uint32_t periphLinks = 1;
+  InitSoftDevice(centralLinks, periphLinks);
+
+  const char *hostName = "gjtests";
+  bleServer.Init(hostName, nullptr);
+
   while(true)
   {
-      //Make sure this program does NOT restart.
-      //This is to avoid running FLASH related TESTs in an unwanted loop
-      //and waste finite FLASH erase ops.
+      bleServer.Update();
+      GJEventManager->WaitForEvents(0);
+
+      bool bleIdle = bleServer.IsIdle();
+      bool evIdle = GJEventManager->IsIdle();
+      bool const isIdle = bleIdle && evIdle;
+      if (isIdle)
+      {
+          power_manage();
+      }
   }
 
   return 0;
