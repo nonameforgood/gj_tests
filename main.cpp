@@ -45,19 +45,22 @@ static void power_manage(void)
   APP_ERROR_CHECK(err_code);
 }
 
-DEFINE_FILE_SECTORS(config, "/config", 0x2fc00, 1);
-DEFINE_FILE_SECTORS(testfile, "/test", 0x30000, 1);
-
 #if defined(NRF51)
   BEGIN_BOOT_PARTITIONS()
   DEFINE_BOOT_PARTITION(0, 0x1c000, 0x10000)
   DEFINE_BOOT_PARTITION(1, 0x2d000, 0x10000)
   END_BOOT_PARTITIONS()
+
+  DEFINE_FILE_SECTORS(config, "/config", 0x3fc00, 1);
+  DEFINE_FILE_SECTORS(testfile, "/test", 0x3F800, 1);
 #elif defined(NRF52)
   BEGIN_BOOT_PARTITIONS()
   DEFINE_BOOT_PARTITION(0, 0x20000, 0x20000)
   DEFINE_BOOT_PARTITION(1, 0x40000, 0x20000)
   END_BOOT_PARTITIONS()
+
+  DEFINE_FILE_SECTORS(config, "/config", 0x7f000, 1);
+  DEFINE_FILE_SECTORS(testfile, "/test", 0x7E000, 1);
 #endif
 
 GJBLEServer bleServer;
