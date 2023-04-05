@@ -53,6 +53,7 @@ static void power_manage(void)
 
   DEFINE_FILE_SECTORS(config, "/config", 0x3fc00, 1);
   DEFINE_FILE_SECTORS(testfile, "/test", 0x3F800, 1);
+  #define HOSTNAME "gjtest51"
 #elif defined(NRF52)
   BEGIN_BOOT_PARTITIONS()
   DEFINE_BOOT_PARTITION(0, 0x20000, 0x20000)
@@ -61,6 +62,7 @@ static void power_manage(void)
 
   DEFINE_FILE_SECTORS(config, "/config", 0x7f000, 1);
   DEFINE_FILE_SECTORS(testfile, "/test", 0x7E000, 1);
+  #define HOSTNAME "gjtest52"
 #endif
 
 GJBLEServer bleServer;
@@ -75,7 +77,7 @@ int main()
   uint32_t periphLinks = 1;
   InitSoftDevice(centralLinks, periphLinks);
 
-  const char *hostName = "gjtests";
+  const char *hostName = HOSTNAME;
   bleServer.Init(hostName, nullptr);
 
   while(true)
