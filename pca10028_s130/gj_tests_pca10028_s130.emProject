@@ -188,6 +188,7 @@
       <file file_name="$(GJ_PATH)/gj/tests/test_config.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_appendonlyfile.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_datetime.cpp" />
+      <file file_name="$(GJ_PATH)/gj/tests/test_fs.cpp" />
     </folder>
     <folder Name="lfs" />
   </project>
