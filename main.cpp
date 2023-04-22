@@ -25,8 +25,6 @@ void RunTests()
   InitFileSystem("");
   InitConfig();
 
-  PrintConfig();
-
   uint32_t maxEvents = 4;
   GJEventManager = new EventManager(maxEvents);
 

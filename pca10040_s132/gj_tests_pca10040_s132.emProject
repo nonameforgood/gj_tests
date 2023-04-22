@@ -36,7 +36,8 @@
       linker_section_placements_segments="FLASH RX 0x0 0x80000;RAM RWX 0x20000000 0x10000"
       macros="CMSIS_CONFIG_TOOL=$(NRF_SDK12_PATH)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar;GJ_PATH=../src/gj/src/"
       project_directory=""
-      project_type="Executable" />
+      project_type="Executable"
+      target_reset_script="TargetInterface.resetAndStop()&#xa;TargetInterface.delay(100) &#xa;TargetInterface.pokeUint32(0x40000400, 0xffffffff)&#xa;TargetInterface.delay(100) &#xa;TargetInterface.pokeBinary(0x20000000, &quot;nullsector16384.bin&quot;)&#xa;TargetInterface.delay(100) " />
     <folder Name="Segger Startup Files">
       <file file_name="$(StudioDir)/source/thumb_crt0.s" />
     </folder>
@@ -74,6 +75,7 @@
       <file file_name="$(GJ_PATH)/gj/tests/test_appendonlyfile.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_datetime.cpp" />
       <file file_name="$(GJ_PATH)/gj/tests/test_fs.cpp" />
+      <file file_name="$(GJ_PATH)/gj/tests/test_reset.cpp" />
     </folder>
     <folder Name="nRF_Log">
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/log/src/nrf_log_backend_serial.c" />
@@ -90,6 +92,7 @@
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/util/app_util_platform.c" />
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/fstorage/fstorage.c" />
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/hardfault/hardfault_implementation.c" />
+      <file file_name="$(NRF_SDK12_PATH)/components/libraries/hardfault/nrf51/handler/hardfault_handler_gcc.c" />
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/util/nrf_assert.c" />
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/uart/retarget.c" />
       <file file_name="$(NRF_SDK12_PATH)/components/libraries/util/sdk_errors.c" />
@@ -164,7 +167,8 @@
       external_debug_symbols_file_name="/Users/rsmRSM/Documents/nordic/projects/gjboot/pca10040/Output/Release/Exe/gjboot_pca10040_s132.elf"
       external_debug_symbols_load_address="0x0"
       linker_output_format="bin"
-      target_loader_erase_all="Yes" />
+      target_loader_erase_all="Yes"
+      target_reset_script="TargetInterface.resetAndStop()&#xa;TargetInterface.delay(100) &#xa;TargetInterface.pokeUint32(0x40000400, 0xffffffff)&#xa;TargetInterface.delay(100) &#xa;TargetInterface.pokeBinary(0x20000000, &quot;nullsector16384.bin&quot;)&#xa;TargetInterface.delay(100) " />
     <configuration
       Name="Debug"
       c_preprocessor_definitions="DEBUG;NRF;NRF_SDK12;BLE_STACK_SUPPORT_REQD;BOARD_PCA10040;CONFIG_GPIO_AS_PINRESET;FLOAT_ABI_HARD;INITIALIZE_USER_SECTIONS;NO_VTOR_CONFIG;NRF52;NRF52832;NRF52832_XXAA;NRF52_PAN_74;NRF_SD_BLE_API_VERSION=3;S132;SOFTDEVICE_PRESENT"

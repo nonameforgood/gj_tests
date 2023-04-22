@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "src/gj/src/gj"
+		},
+		{
 			"path": "../libraries/ArduinoWebsockets"
 		},
 		{
@@ -19,10 +22,7 @@
 			"path": "../../../../Library/Arduino15/packages/esp32/hardware/esp32/2.0.6/libraries"
 		},
 		{
-			"path": "src/gj/src/gj"
-		},
-		{
-			"path": "../../nRF5_SDK_12.3.0_d7731ad/components"
+			"path": "../../nordic/nRF5_SDK_12.3.0_d7731ad/components"
 		}
 	],
 	"settings": {
